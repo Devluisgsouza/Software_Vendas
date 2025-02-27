@@ -1,4 +1,4 @@
-from funcoes.func import desconto
+from main.funcoes.desconto import desconto
 
 # Cria as variáveis
 totprod = 0
