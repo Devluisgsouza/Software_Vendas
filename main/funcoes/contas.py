@@ -3,7 +3,7 @@ def criar_conta():
     password = input("Password: ")
     with open("main/banco_de_dados/accounts.txt", "a") as arquivo:
         arquivo.write(f"{login},{password}\n")
-    print("account created successfully")
+    print("account created successfully")   
 
 
 
