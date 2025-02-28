@@ -9,13 +9,47 @@ totproddesc = 0
 listname = []
 listprice = []
 listlogin = []
+listpass = []
+listaccount = []
+result = []
 
-open("main/banco_de_dados/login.txt", "r")
-open("main/banco_de_dados/senha.txt", "r")
+
+login = open("main/banco_de_dados/login.txt", "a")
+account = open("main/banco_de_dados/accounts.txt", "a")
 
 
-print(
-    "WELCOME TO THE SALE SYSTEM\n\nDO YOU HAVE AN ACCOUNT? \n[1] YES  OR  [2] NO")
+print("WELCOME TO THE SALE SYSTEM\n")
+print("DO YOU HAVE AN ACCOUNT?")
+resp = str(input("[1] YES   or   [2] NO\n"))
+if resp != "1":
+    print("CREATE YOUR ACCOUNT\n")
+    log1 = str(input("Login: "))
+    pass1 = str(input("Passwor: "))
+    listlogin.append(str(log1))
+    listlogin.append(str(pass1))
+    listaccount.append(str(listlogin))
+    account.write(str(listaccount)) and account.write("\n")
+    print(listlogin)
+    print(listaccount)
+else:
+    account = open("main/banco_de_dados/accounts.txt", "r")
+    print("ENTER WITH YOUR ACCOUNT\n")
+    log2 = str(input("Login: "))
+    pass2 = str(input("Passwor: "))
+    result.append(str(log2))
+    result.append(str(pass2))
+    list = account.readlines()
+    print(list)
+    print(result)
+    if result in list:
+        print("open")
+account.close()
+login.close()
+
+
+
+
+
 
 
 # Loop para adicionar produtos e preços
