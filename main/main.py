@@ -3,9 +3,9 @@ from funcoes.vender_produto import vender_produto
 from funcoes.acessar_sistema import acessar_sistema
 
 
-print("WELCOME TO THE SALE SYSTEM\n")
+print("--- WELCOME TO THE SALE SYSTEM --- \n")
 while True:
-    print("DO YOU HAVE AN ACCOUNT?")
+    print("--- DO YOU HAVE AN ACCOUNT? ---")
     resp = str(input("[1] YES   or   [2] NO\n").replace(" ","").lower())
     if resp == "1":
         fazer_login()
@@ -16,9 +16,5 @@ while True:
         acessar_sistema()
         break
     else:
-        print("I CAN'T UNDERSTAND WHAT YOU WANT")
+        print("--- I CAN'T UNDERSTAND WHAT YOU WANT ---")
         
-
-
-
-

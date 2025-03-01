@@ -1,2 +1,2 @@
 # Software_Vendas
- Software para efetuar vendas de produtos
+ Software para vendas de qualquer tipo de produto, com sistema de ogin e senha, podendo existir desconto no valor de cada produto.
