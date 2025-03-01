@@ -7,7 +7,7 @@ def vender_produto():
     sacola = []
     while True:
         name = input("Product's name: ")
-        price = float(input("Product's price: ").replace(",","."))
+        price = float(input("Product's price: ").replace(",", "."))
         with open("main/banco_de_dados/price.txt", "a") as arquivo:
             arquivo.write(f"{price}\n")
         with open("main/banco_de_dados/name.txt", "a") as arquivo:
@@ -15,15 +15,15 @@ def vender_produto():
         if price < 100:
             total += price
             totprod += 1
-            sacola.append((name,price))
+            sacola.append((name, price))
         else:
             price = price - (price * 0.1)
             totdesc += 1
             total += price
             totprod += 1
-            sacola.append((name,price))
+            sacola.append((name, price))
         while True:
-            decide = input("Add more products? [1] Yes [2] No: ").replace(",",".")
+            decide = input("Add more products? [1] Yes [2] No: ").replace(",", ".").lower()
             if decide == "2":
                 print(f"\nTotal products: {totprod}")
                 print(f"Total products on sale: {totdesc}")
@@ -36,7 +36,5 @@ def vender_produto():
                 break
             else:
                 print("\n--- I CAN'T UNDERSTAND WHAT YOU WANT ---\n")
-        if decide != "1" and "2":      
+        if decide != "1" and "2":
             break
-                
-        
