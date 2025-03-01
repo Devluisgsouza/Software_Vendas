@@ -1,4 +1,4 @@
-def vendaer_produto():
+def vender_produto():
     total = 0
     totprod = 0
     totdesc = 0
@@ -13,7 +13,6 @@ def vendaer_produto():
 
         else:
             total += price
-
         decide = int(input("Add more products? [1] Yes [2] No: "))
         if decide == 2:
             print(f"Total products: {totprod}")

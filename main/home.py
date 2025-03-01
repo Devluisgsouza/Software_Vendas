@@ -1,6 +1,5 @@
-from funcoes.transforma import transfstr
 from funcoes.contas import criar_conta, fazer_login
-from funcoes.vender_produto import vendaer_produto
+from funcoes.vender_produto import vender_produto
 
 # Criação das variáveis
 
@@ -13,4 +12,4 @@ if resp == "1":
 else:
     criar_conta()
 
-vendaer_produto()
+vender_produto()
