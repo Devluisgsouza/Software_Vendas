@@ -1,5 +1,4 @@
 from funcoes.contas import criar_conta, fazer_login
-from funcoes.vender_produto import vender_produto
 from funcoes.acessar_sistema import acessar_sistema
 
 
