@@ -2,10 +2,22 @@ def criar_conta():
     print("--- CREAT YOUR ACCOUNT: ---\n")
     login = input("Login: ")
     password = input("Password: ")
-    with open("main/banco_de_dados/accounts.txt", "a") as arquivo:
-        arquivo.write(f"{login},{password}\n")
-    print("\n--- ACCOUNT CREATED SUCCESSFULY! ---")
-    return
+    with open("main/banco_de_dados/logins.txt","r") as arquivo:
+        log = arquivo.read() 
+    if login in log:
+        print("\n--- THIS ACCOUNT ALREADY EXISTS IN THE SYSTEM ---\n")
+        criar_conta()
+    else:
+        with open("main/banco_de_dados/logins.txt","a") as arquivo:
+            arquivo.write(f"{login}\n")
+        with open("main/banco_de_dados/passwords.txt","a") as arquivo:
+            arquivo.write(f"{password}\n")
+        print("\n--- ACCOUNT CREATED SUCCESSFULY! ---")
+        with open("main/banco_de_dados/accounts.txt", "a") as arquivo:
+            arquivo.write(f"{login},{password}\n")
+        return
+
+
 
 
 def fazer_login():

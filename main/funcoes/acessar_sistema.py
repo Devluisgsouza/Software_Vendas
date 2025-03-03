@@ -7,7 +7,7 @@ def acessar_sistema():
             vender_produto()
             break
         elif resp == "2":
-            print("\nSEE YOU SOON!")
+            print("\n--- SEE YOU SOON! ---\n")
             break
         else:
             print("I CAN'T UNDERSTAND WHAT YOU WANT")
