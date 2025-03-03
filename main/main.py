@@ -2,10 +2,11 @@ from funcoes.contas import criar_conta, fazer_login
 from funcoes.acessar_sistema import acessar_sistema
 
 
-print("--- WELCOME TO THE SALE SYSTEM --- \n")
+print(
+    f"{"\n"}{"\033[1;32m WELCOME TO THE SALES SYSTEM \033[m".center(54)}{"\n"}")
 while True:
-    print("--- DO YOU HAVE AN ACCOUNT? ---")
-    resp = str(input("[1] YES   or   [2] NO\n").replace(" ","").lower())
+    print(f"{"\n"}{"\033[1;36m DO YOU HAVE AN ACCOUNT? ".center(52)}\n")
+    resp = str(input(f"{" [1]YES   or   [2]NO ".center(45)}{"\n"}{"\n"}").replace(" ", "").lower())
     if resp == "1":
         fazer_login()
         acessar_sistema()
@@ -15,5 +16,6 @@ while True:
         acessar_sistema()
         break
     else:
-        print("--- I CAN'T UNDERSTAND WHAT YOU WANT ---")
-        
+        print(f"{"\033[1;31m I CAN'T UNDERSTAND WHAT YOU WANT \033[m".center(55)}{"\n"}")
+
+
