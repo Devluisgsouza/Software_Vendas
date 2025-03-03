@@ -7,7 +7,13 @@ def vender_produto():
     sacola = []
     while True:
         name = input("\033[1;36mProduct's name: ")
-        price = float(input("Product's price: ").replace(",", "."))
+        while True:
+            pricestr = input("\033[1;36mProduct's price: ").replace(",", ".").replace(" ","")
+            try:
+                price = float(pricestr)
+                break
+            except:
+                print(f"{"\n"}{"\033[1;31m ERROR! ENTER A VALID PRICE \033[m".center(52)}{"\n"}")
         with open("main/banco_de_dados/price.txt", "a") as arquivo:
             arquivo.write(f"{price}\n")
         with open("main/banco_de_dados/name.txt", "a") as arquivo:
@@ -42,3 +48,4 @@ def vender_produto():
                     f"{"\n"}{"\033[1;31m I CAN'T UNDERSTAND WHAT YOU WANT ".center(50)}{"\n"}")
         if decide != "1" and "2":
             break
+        

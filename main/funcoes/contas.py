@@ -1,4 +1,5 @@
 def criar_conta():
+    print(f"{"\033[1;36m CREATE YOUR ACCOUNT ".center(52)}{"\n"}")
     while True:
         login = input("\033[1;32mLogin: ").replace("@","").replace(".","")
         password = input("\033[1;32mPassword: ")
