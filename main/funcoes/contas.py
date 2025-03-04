@@ -1,7 +1,7 @@
 def criar_conta():
-    print(f"{"\033[1;36m CREATE YOUR ACCOUNT ".center(52)}{"\n"}")
+    print(f"{"\n"}{"\033[1;36m CREATE YOUR ACCOUNT ".center(52)}{"\n"}")
     while True:
-        login = input("\033[1;32mLogin: ").replace("@","").replace(".","")
+        login = input("\033[1;32mEmail: ").replace("@","").replace(".","")
         password = input("\033[1;32mPassword: ")
         with open("main/banco_de_dados/logins.txt","r") as arquivo:
             conteudo = arquivo.readlines()
@@ -21,23 +21,29 @@ def criar_conta():
     
 
 def fazer_login():
-    print(f"{"\033[1;36m ENTER WITH YOUR ACCOUNT: ".center(50)}{"\n"}")
-    login = input("Email: ")
+    print(f"{"\n"}{"\033[1;36m ENTER WITH YOUR ACCOUNT: ".center(52)}{"\n"}")
+    login = input("\033[1;32mEmail: ")
     password = input("Password: ")
     with open("main/banco_de_dados/accounts.txt", "r") as arquivo:
         contas = arquivo.readlines()
     for conta in contas:
         login_salvo, senha_salva = conta.strip().split(",")
         if login == login_salvo and password == senha_salva:
-            print(f"{"\n"}{"\033[1;32m SUCCESSFULLY LOGIN \033[m".center(50)}")
+            print(f"{"\n"}{"\033[1;32m SUCCESSFULLY LOGIN \033[m".center(51)}")
             return
+    print(f"{"\n"}{"\033[1;31m WRONG INFORMATIONS! \033[m".center(54)}")
     while True:
-        print(f"{"\n"}{"\033[1;31m WRONG INFORMATIONS! \033[m".center(54)}")
         print(f"{"\n"}{"\033[1;36m WOULD YOU LIKE TO CREATE A NEW ACCOUNT? ".center(53)}{"\n"}")
-        resp = input(f"{" [1]YES   OR   [2]NO ".center(44)}{"\n"}").replace(" ","").lower()
+        resp = input(f"{" [1]YES   OR   [2]NO ".center(44)}{"\n"}{"\n"}").replace(" ","").lower()
         if resp == "1":
             criar_conta()
             return
-        else:
+        elif resp == "2":
             fazer_login()
             return
+        else:
+            print(f"{"\n"}{"\033[1;31mI CAN'T UNDERSTAND WHAT YOU WANT\033[m".center(53)}")
+
+
+#fazer_login()
+#criar_conta()

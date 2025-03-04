@@ -1,6 +1,9 @@
+from contas import fazer_login
+import funcoes.menu
 def vender_produto():
-    print(f"{"\033[1;36m WELCOME TO SALES SYSTEM! ".center(50)}")
+    print(f"{"\n"}{"\033[1;36m WELCOME TO SALES SYSTEM! ".center(50)}")
     print(f"{"\n"}{"\033[1;34m PRODUCTS OVER R$100.00 HAVE A 10% DISCOUNT! ".center(50)}{"\n"}")
+    print(f"{"\033[1;36m PUT ALL THE PRODUCTS YOU'VE SOLD ".center(50)}{"\n"}")
     total = 0
     totprod = 0
     totdesc = 0
@@ -48,4 +51,18 @@ def vender_produto():
                     f"{"\n"}{"\033[1;31m I CAN'T UNDERSTAND WHAT YOU WANT ".center(50)}{"\n"}")
         if decide != "1" and "2":
             break
-        
+    while True:
+        print("\033[1;36m WOULD YOU LIKE TO MAKE A NEW SALE OR CHANGE ACCOUNT? ".center(49))
+        resp = str(input(f"{"\n"}{" [1]NEW SALE     [2]CHANGE ACCOUNT     [3]LOGOUT ".center(49)}{"\n"}{"\n"}").replace(" ", "").lower())
+        if resp == "1":
+            vender_produto()
+        elif resp == "2":
+            fazer_login()
+            funcoes.menu.menu()
+        elif resp == "3":
+            print(f"{"\n"}{"\033[1;32m SEE YOU SOON! \033[m".center(48)}{"\n"}")
+            break
+        else:
+            print(f"{"\033[1;31m I CAN'T UNDERSTAND WHAT YOU WANT \033[m".center(54)}{"\n"}")
+            
+#vender_produto()
