@@ -1,3 +1,5 @@
+
+
 def criar_conta():
     print(f"{"\n"}{"\033[1;36m CREATE YOUR ACCOUNT ".center(52)}{"\n"}")
     while True:
@@ -37,13 +39,9 @@ def fazer_login():
         resp = input(f"{" [1]YES   OR   [2]NO ".center(44)}{"\n"}{"\n"}").replace(" ","").lower()
         if resp == "1":
             criar_conta()
-            return
+            break
         elif resp == "2":
             fazer_login()
-            return
+            break
         else:
             print(f"{"\n"}{"\033[1;31mI CAN'T UNDERSTAND WHAT YOU WANT\033[m".center(53)}")
-
-
-#fazer_login()
-#criar_conta()
