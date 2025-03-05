@@ -5,7 +5,6 @@ data = tempo.strftime("%d/%m/%Y")
 hora = datetime.now().time()
 vendas = []
 
-
 def vender_prod():
     print(f"{"\n"}{"\033[1;36m WELCOME TO SALES SYSTEM! ".center(50)}")
     print(

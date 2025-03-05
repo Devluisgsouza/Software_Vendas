@@ -1,5 +1,4 @@
 
-
 def criar_conta():
     print(f"{"\n"}{"\033[1;36m CREATE YOUR ACCOUNT ".center(52)}{"\n"}")
     while True:
