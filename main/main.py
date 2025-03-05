@@ -1,7 +1,7 @@
 from funcoes.contas import criar_conta, fazer_login
 from funcoes.vender_produto import vender_prod
 from funcoes.vendas import vendashist
-from funcoes.menu import menusystem
+from funcoes.menu import menusystem, menusystem2
 
 
 print(f"{"\n"}{"\033[1;32m WELCOME TO THE SALES SYSTEM \033[m".center(54)}{"\n"}")
@@ -49,11 +49,7 @@ while True:
     else:
         print(f"{"\n"}{"\033[1;31m I CAN'T UNDERSTAND WHAT YOU WANT \033[m".center(54)}{"\n"}")
 while True:
-    print("\033[1;36m WHAT YOU WANT TO DO? ".center(49))
-    print(f"{"\n"}{"[1]NEW SALE".center(49)}")
-    print(f"{"\n"}{"[2] CHANGE ACCOUNT".center(49)}")
-    print(f"{"\n"}{"[3] RETURN TO MENU".center(49)}")
-    print(f"{"\n"}{"[4] LOGOUT".center(49)}")
+    menusystem2()
     resp4 = input("").replace(" ", "").lower()
     if resp4 == "1":
         vender_prod()
