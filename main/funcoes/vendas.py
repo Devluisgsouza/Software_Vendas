@@ -28,10 +28,10 @@ def vendashist():
             for item in vendas:
                 if resp3str in item.strip().split(","):
                     print(item)
-
+                
 
         elif resp == "3":
-            resp4 = input(f"{"\n"}{"\033[1;36mENTER THE PRODUCT PRICE: ".center(50)}{"\n"}{"\n"}\033[1;32m").replace("-", "/").strip()
+            resp4 = input(f"{"\n"}{"\033[1;36mENTER THE PRODUCT DATE: ".center(50)}{"\n"}{"\n"}\033[1;32m").replace("-", "/").strip()
             print(f"{"\n"}{"\033[1;36mPRODUCT HISTORY WITH DATE: ".center(47)}\033[1;32m{resp4}{"\n"}")
             print(f"{"\n"}{"\033[1;36mNAME , PRICE , DATE\033[m\n\033[1;32m"}")
             for item in vendas:

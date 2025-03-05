@@ -15,7 +15,7 @@ def vender_prod():
     totdesc = 0
     sacola = []
     while True:
-        name = input("\033[1;36mProduct's name: ")
+        name = input("\033[1;36mProduct's name: ").lower().strip()
         while True:
             pricestr = input("\033[1;36mProduct's price: ").replace(",", ".").replace(" ", "")
             try:
