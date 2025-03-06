@@ -33,7 +33,7 @@ def vender_prod():
             with open("main/banco_de_dados/name.txt", "a") as arquivo:
                 arquivo.write(f"{name}\n")
             with open("main/banco_de_dados/vendas.txt", "a") as arquivo:
-                arquivo.write(f"{"\n"}{name},{price},{data}")
+                arquivo.write(f"{name},{price},{data}{"\n"}")
         else:
             price = price - (price * 0.1)
             totdesc += 1

@@ -1,7 +1,7 @@
 
 def vendashist():
     while True:
-        print(f"{"\n"}{"\033[1;34mSYSTEM SALES HISTORY".center(49)}\n")
+        print(f"{"\n"}{"\033[1;34mSALES HISTORY SYSTEM".center(49)}\n")
         print(f"{"DO YOU WANT TO SEARCH BY:  ".center(49)}{"\n"}")
         print("[1] PRODUCT NAME ".center(39))
         print("[2] PRODUCT PRICE ".center(39))

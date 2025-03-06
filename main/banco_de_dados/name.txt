@@ -1,10 +1,2 @@
-KAISER
-HEINEKEN
-AMSTEL
-UVA
 uva
-kaiser
-amstel
-heineken
-heineken 5 litros
-uva
+leite
