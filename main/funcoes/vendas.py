@@ -44,6 +44,6 @@ def vendashist():
             print(f"{"\n"}{"\033[1;31m I CAN'T UNDERSTAND WHAT YOU WANT! ".center(49)}")
 
 
-#vendashist()
+vendashist()
 
 
