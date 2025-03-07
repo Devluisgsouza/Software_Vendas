@@ -5,6 +5,7 @@ data = tempo.strftime("%d/%m/%Y")
 hora = datetime.now().time()
 vendas = []
 
+
 def vender_prod():
     print(f"{"\n"}{"\033[1;36m WELCOME TO SALES SYSTEM! ".center(50)}")
     print(
@@ -28,11 +29,11 @@ def vender_prod():
             totprod += 1
             sacola.append((name, price))
             with open("main/banco_de_dados/price.txt", "a") as arquivo:
-                arquivo.write(f"{price}\n")
+                arquivo.write(f"\n{price}")
             with open("main/banco_de_dados/name.txt", "a") as arquivo:
                 arquivo.write(f"{name}\n")
             with open("main/banco_de_dados/vendas.txt", "a") as arquivo:
-                arquivo.write(f"{name},{price},{data}{"\n"}")
+                arquivo.write(f"{"\n"}{name},{price},{data}")
         else:
             price = price - (price * 0.1)
             totdesc += 1
@@ -72,4 +73,4 @@ def vender_prod():
             break
 
 
-#vender_prod()
+vender_prod()

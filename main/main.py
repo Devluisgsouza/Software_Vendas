@@ -4,6 +4,7 @@ from funcoes.vendas import vendashist
 from funcoes.menu import menusystem, menusystem2
 
 
+
 print(f"{"\n"}{"\033[1;32m WELCOME TO THE SALES SYSTEM \033[m".center(54)}{"\n"}")
 while True:
     print(f"{"\033[1;36m DO YOU HAVE AN ACCOUNT? ".center(52)}\n")

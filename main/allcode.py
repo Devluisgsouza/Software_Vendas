@@ -184,7 +184,7 @@ def menusystem2():
 from funcoes.contas import criar_conta, fazer_login
 from funcoes.vender_produto import vender_prod
 from funcoes.vendas import vendashist
-from funcoes.menu import menusystem, menusystem2
+from main.funcoes.menu import menusystem, menusystem2
 
 
 print(f"{"\n"}{"\033[1;32m WELCOME TO THE SALES SYSTEM \033[m".center(54)}{"\n"}")
