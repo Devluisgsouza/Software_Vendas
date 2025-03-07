@@ -22,8 +22,7 @@ def vender_prod():
                 price = float(pricestr)
                 break
             except:
-                print(
-                    f"{"\n"}{"\033[1;31m ERROR! ENTER A VALID PRICE \033[m".center(52)}{"\n"}")
+                print(f"{"\n"}{"\033[1;31m ERROR! ENTER A VALID PRICE \033[m".center(52)}{"\n"}")
         if price < 100:
             total += price
             totprod += 1
