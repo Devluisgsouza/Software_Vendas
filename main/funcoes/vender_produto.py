@@ -73,4 +73,4 @@ def vender_prod():
             break
 
 
-vender_prod()
+#vender_prod()
