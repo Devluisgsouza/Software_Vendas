@@ -4,19 +4,30 @@ tempo = datetime.now().date()
 data = tempo.strftime("%d/%m/%Y")
 hora = datetime.now().time()
 vendas = []
-
+sair = True
 
 def vender_prod():
     print(f"{"\n"}{"\033[1;36m WELCOME TO SALES SYSTEM! ".center(50)}")
     print(
         f"{"\n"}{"\033[1;34m PRODUCTS OVER R$100.00 HAVE A 10% DISCOUNT! ".center(50)}{"\n"}")
     print(f"{"\033[1;36m PUT ALL THE PRODUCTS YOU'VE SOLD ".center(50)}{"\n"}")
+    print(f"{"IF YOU WANT TO RETURN TO MENU, PRINT 'SAIR'"}")
     total = 0
     totprod = 0
     totdesc = 0
     sacola = []
+    sair = False
     while True:
-        name = input("\033[1;36mProduct's name: ").lower().strip()
+        while True:
+            if sair:
+                break
+            name = input("\033[1;36mProduct's name: ").lower().strip()
+            if name == "":
+                print(f"{"\n"}{"\033[1;31m ERROR! ENTER A VALID NAME \033[m".center(51)}{"\n"}")
+            elif name == "sair".strip().lower():
+                return sair
+            else:
+                break
         while True:
             pricestr = input("\033[1;36mProduct's price: ").replace(",", ".").replace(" ", "")
             try:
@@ -73,4 +84,4 @@ def vender_prod():
             break
 
 
-#vender_prod()
+vender_prod()
