@@ -2,39 +2,44 @@ from datetime import datetime
 
 tempo = datetime.now().date()
 data = tempo.strftime("%d/%m/%Y")
-hora = datetime.now().time()
 vendas = []
 sair = True
 
+
 def vender_prod():
-    print(f"{"\n"}{"\033[1;36m WELCOME TO SALES SYSTEM! ".center(50)}")
-    print(
-        f"{"\n"}{"\033[1;34m PRODUCTS OVER R$100.00 HAVE A 10% DISCOUNT! ".center(50)}{"\n"}")
+    print(f"{"\n"}{"\033[1;36m WELCOME TO SALES SYSTEM! ".center(50)}{"\n"}")
     print(f"{"\033[1;36m PUT ALL THE PRODUCTS YOU'VE SOLD ".center(50)}{"\n"}")
-    print(f"{"IF YOU WANT TO RETURN TO MENU, PRINT 'SAIR'"}")
+    print(f"{"\n"}{"\033[1;34m PRODUCTS OVER R$100.00 HAVE A 10% DISCOUNT! ".center(50)}{"\n"}")
+    print(f"{"IF YOU WANT TO RETURN TO MENU, TYPE 'EXIT'".center(44)}{"\n"}")
+
     total = 0
     totprod = 0
     totdesc = 0
     sacola = []
-    sair = False
+    exit = False
+
     while True:
-        while True:
-            if sair:
+        if exit:
                 break
-            name = input("\033[1;36mProduct's name: ").lower().strip()
+        while True:
+            name = input(f"\033[1;36m{"\n"}{"Product's name: "}").lower().strip()
             if name == "":
-                print(f"{"\n"}{"\033[1;31m ERROR! ENTER A VALID NAME \033[m".center(51)}{"\n"}")
-            elif name == "sair".strip().lower():
-                return sair
+                print(
+                    f"{"\n"}{"\033[1;31m ERROR! ENTER A VALID NAME \033[m".center(51)}{"\n"}")
+            elif name == "exit".strip().lower():
+                return exit
             else:
                 break
         while True:
-            pricestr = input("\033[1;36mProduct's price: ").replace(",", ".").replace(" ", "")
+            pricestr = input("\033[1;36mProduct's price: ").replace(",",".").strip().lower()
+            if pricestr == "exit".strip().lower():
+                return exit
             try:
                 price = float(pricestr)
                 break
             except:
-                print(f"{"\n"}{"\033[1;31m ERROR! ENTER A VALID PRICE \033[m".center(52)}{"\n"}")
+                print(
+                    f"{"\n"}{"\033[1;31m ERROR! ENTER A VALID PRICE \033[m".center(52)}{"\n"}")
         if price < 100:
             total += price
             totprod += 1
@@ -64,15 +69,15 @@ def vender_prod():
             if decide == "2":
                 print(f"{"\n"}{"\033[1;33m SUMMARY OF YOUR SALE ".center(48)}")
                 print(
-                    f"{"\n"}{"\033[1;33mTotal products: "}\033[1;32m{totprod}\033[m")
+                    f"{"\n"}{"\033[1;33mTotal products: ".ljust(35)}\033[1;32m{totprod}\033[m")
                 print(
-                    f"{"\033[1;33mTotal products on sale: "}\033[1;32m{totdesc}\033[m")
+                    f"{"\033[1;33mTotal products on sale: ".ljust(35)}\033[1;32m{totdesc}\033[m")
                 print(
-                    f"{"\033[1;33mTotal to pay: "}\033[1;32mR${total:.2f}\033[m")
+                    f"{"\033[1;33mTotal to pay: ".ljust(35)}\033[1;32mR${total:.2f}\033[m")
                 print(
                     f"{"\n"}{"\033[1;33m ALL PRODUCTS SOLD ".center(47)}{"\n"}")
                 for name, price in sacola:
-                    print(f"\033[1;33m{name}  -  \033[1;32mR${price:.2f}")
+                    print(f"\033[1;33m{name}{"    -    "}\033[1;32mR${price:.2f}")
                 print(f"{"\n"}{"\033[m"}")
                 break
             elif decide == "1":
@@ -84,4 +89,4 @@ def vender_prod():
             break
 
 
-vender_prod()
+#vender_prod()

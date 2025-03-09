@@ -45,33 +45,15 @@ while True:
                 case _:
                     print("\033[1;31m I CAN'T UNDERSTAND WHAT YOU WANT! ".center(47))
         vender_prod()
-        break
     else:
         print(f"{"\n"}{"\033[1;31m I CAN'T UNDERSTAND WHAT YOU WANT \033[m".center(54)}{"\n"}")
 while True:
     menusystem2()
-    resp4 = input("").replace(" ", "").lower()
+    resp4 = input("").strip().lower()
     if resp4 == "1":
         vender_prod()
     elif resp4 == "2":
         fazer_login()
-        while True:
-            menusystem()
-            resp5 = input(f"{" WHAT YOU WANT TO DO? ".center(42)}{"\n"}{"\n"}")
-            match resp5:
-                case "1":
-                    break
-                case "2":
-                    fazer_login()
-                case "3":
-                    vendashist()
-                case "4":
-                    print(f"{"\n"}{"\033[1;32m SEE YOU SOON! \033[m".center(52)}{"\n"}")
-                    exit()
-                case _:
-                    print("\033[1;31m I CAN'T UNDERSTAND WHAT YOU WANT! ".center(47))
-        vender_prod()
-        break
     elif resp4 == "3":
         while True:
             menusystem()
@@ -89,7 +71,6 @@ while True:
                 case _:
                     print("\033[1;31m I CAN'T UNDERSTAND WHAT YOU WANT! ".center(47))
         vender_prod()
-        break
     elif resp4 == "4":
         print(f"{"\n"}{"\033[1;32m SEE YOU SOON! \033[m".center(48)}{"\n"}")
         exit()   

@@ -8,7 +8,7 @@ def menusystem():
 
 
 def menusystem2():
-    print("\033[1;36m WHAT YOU WANT TO DO? ".center(49))
+    print(f"{"\n"}\033[1;36m{" WHAT YOU WANT TO DO? ".center(41)}")
     print(f"{"\n"}{"[1] NEW SALE".center(33)}")
     print(f"{"[2] CHANGE ACCOUNT".center(40)}")
     print(f"{"[3] RETURN TO MENU".center(40)}")
