@@ -1,9 +1,13 @@
 from datetime import datetime
+import openpyxl as op
 
 tempo = datetime.now().date()
 data = tempo.strftime("%d/%m/%Y")
 vendas = []
 sair = True
+
+book = op.load_workbook("main\\banco_de_dados\\banco.xlsx")
+banco = book["banco_de_dados"]
 
 
 def vender_prod():
@@ -50,6 +54,8 @@ def vender_prod():
                 arquivo.write(f"{name}\n")
             with open("main/banco_de_dados/vendas.txt", "a") as arquivo:
                 arquivo.write(f"{"\n"}{name},{price},{data}")
+            banco.append([name,price,data])
+            book.save("main\\banco_de_dados\\banco.xlsx")
         else:
             price = price - (price * 0.1)
             totdesc += 1
@@ -62,6 +68,8 @@ def vender_prod():
                 arquivo.write(f"{name}\n")
             with open("main/banco_de_dados/vendas.txt", "a") as arquivo:
                 arquivo.write(f"{"\n"}{name},{price},{data}")
+            banco.append([name,price,data])
+            book.save("main\\banco_de_dados\\banco.xlsx")
         while True:
             print(f"{"\n"}{"\033[1;36m ADD MORE PRODUCTS? ".center(48)}{"\n"}")
             decide = input(f"{" [1]YES   OR   [2]NO ".center(42)}{"\n"}{"\n"}").replace(
@@ -88,5 +96,6 @@ def vender_prod():
         if decide != "1" and "2":
             break
 
+book.save("main\\banco_de_dados\\banco.xlsx")
 
 #vender_prod()

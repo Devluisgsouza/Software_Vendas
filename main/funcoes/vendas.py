@@ -16,6 +16,8 @@ def vendashist():
             print(f"{"\n"}{"\033[1;36mNAME , PRICE , DATE\033[m\n\033[1;32m"}")
             for item in vendas:
                 if resp2 in item.strip().split(","):
+                    for nome, preço, data in item:
+                        print(f"{"Nome: "}{nome}{"Preço: "}{preço}{"Data: "}{data}")
                     print(item)
 
         elif resp == "2":
