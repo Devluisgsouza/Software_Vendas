@@ -15,3 +15,5 @@ jaca
 leite
 manga roxa
 leite azedo
+copo
+garfo
