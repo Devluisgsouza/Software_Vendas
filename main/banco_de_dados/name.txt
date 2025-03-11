@@ -17,3 +17,5 @@ manga roxa
 leite azedo
 copo
 garfo
+copo
+mouse
