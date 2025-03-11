@@ -47,7 +47,7 @@ while True:
                     print("\033[1;31m I CAN'T UNDERSTAND WHAT YOU WANT! ".center(47))
         vender_prod()
     else:
-        print(f"{"\n"}{"\033[1;31m I CAN'T UNDERSTAND WHAT YOU WANT \033[m".center(54)}")
+        print(f"{"\n"}{"\033[1;31m I CAN'T UNDERSTAND WHAT YOU WANT \033[m".center(56)}")
         print(f"{"\033[1;31mCHOOSE THE OPTION USING THE NUMBERS [1,2]".center(54)}{"\n"}")
 while True:
     menusystem2()
@@ -72,6 +72,7 @@ while True:
                     exit()
                 case _:
                     print("\033[1;31m I CAN'T UNDERSTAND WHAT YOU WANT! ".center(47))
+                    print(f"\033[1;31mCHOOSE THE OPTION USING THE NUMBERS [1,2,3,4]".center(47))
         vender_prod()
     elif resp4 == "4":
         print(f"{"\n"}{"\033[1;32m SEE YOU SOON! \033[m".center(48)}{"\n"}")

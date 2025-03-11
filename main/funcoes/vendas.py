@@ -10,38 +10,48 @@ def vendashist():
         resp = input("\n")
         with open("main/banco_de_dados/vendas.txt", "r") as arquivo:
             vendas = arquivo.readlines()
-        if resp == "1":
-            resp2 = input(f"{"\n"}{"\033[1;36mENTER THE PRODUCT NAME: ".center(50)}{"\n"}{"\n"}\033[1;32m").strip().lower()
-            print(f"{"\n"}{"\033[1;36mPRODUCT HISTORY WITH NAME: ".center(47)}\033[1;32m{resp2}{"\n"}")
-            print(f"{"\n"}{"\033[1;36mNAME , PRICE , DATE\033[m\n\033[1;32m"}")
-            for item in vendas:
-                if resp2 in item.strip().split(","):
-                    if resp2 in item.strip().split(","):
+        while True:
+            if resp == "1":
+                resp2 = input(f"{"\n"}{"\033[1;36mENTER THE PRODUCT NAME: ".center(50)}{"\n"}{"\n"}\033[1;32m").strip().lower()
+                if resp2 != "":
+                    print(f"{"\n"}{"\033[1;36mPRODUCT HISTORY WITH NAME: ".center(47)}\033[1;32m{resp2}{"\n"}")
+                    print(f"{"\n"}{"\033[1;36mNAME , PRICE , DATE\033[m\n\033[1;32m"}")
+                    for item in vendas:
+                        if resp2 in item.strip().split(","):
+                            if resp2 in item.strip().split(","):
+                                print(item)
+                    break
+                else:
+                    print(f"{"\n"}{"\033[1;31m ERROR! ENTER A VALID NAME \033[m".center(51)}{"\n"}")
+
+            elif resp == "2":
+                resp3 = input(f"{"\n"}{"\033[1;36mENTER THE PRODUCT PRICE: ".center(50)}{"\n"}{"\n"}\033[1;32m").replace(",", ".").strip()
+                if resp3 != "":
+                    resp3float = float(resp3)
+                    resp3str = str(resp3float)
+                    print(f"{"\n"}{"\033[1;36mPRODUCT HISTORY WITH PRICE: ".center(47)}\033[1;32m{resp3float}{"\n"}")    
+                    print(f"{"\n"}{"\033[1;36mNAME , PRICE , DATE\033[m\n\033[1;32m"}")       
+                    for item in vendas:
+                        if resp3str in item.strip().split(","):
+                            print(item)
+                    break
+                else:
+                    print(f"{"\n"}{"\033[1;31m ERROR! ENTER A VALID PRICE \033[m".center(52)}{"\n"}")
+
+            elif resp == "3":
+                resp4 = input(f"{"\n"}{"\033[1;36mENTER THE PRODUCT DATE: ".center(50)}{"\n"}{"\n"}\033[1;32m").replace("-", "/").strip()
+                print(f"{"\n"}{"\033[1;36mPRODUCT HISTORY WITH DATE: ".center(47)}\033[1;32m{resp4}{"\n"}")   
+                print(f"{"\n"}{"\033[1;36mNAME , PRICE , DATE\033[m\n\033[1;32m"}")  
+                for item in vendas:
+                    if resp4 in item.strip().split(","):
                         print(item)
 
-        elif resp == "2":
-            resp3 = input(f"{"\n"}{"\033[1;36mENTER THE PRODUCT PRICE: ".center(50)}{"\n"}{"\n"}\033[1;32m").replace(",", ".").strip()
-            resp3float = float(resp3)
-            resp3str = str(resp3float)
-            print(f"{"\n"}{"\033[1;36mPRODUCT HISTORY WITH PRICE: ".center(47)}\033[1;32m{resp3float}{"\n"}")    
-            print(f"{"\n"}{"\033[1;36mNAME , PRICE , DATE\033[m\n\033[1;32m"}")       
-            for item in vendas:
-                if resp3str in item.strip().split(","):
-                    print(item)
-
-        elif resp == "3":
-            resp4 = input(f"{"\n"}{"\033[1;36mENTER THE PRODUCT DATE: ".center(50)}{"\n"}{"\n"}\033[1;32m").replace("-", "/").strip()
-            print(f"{"\n"}{"\033[1;36mPRODUCT HISTORY WITH DATE: ".center(47)}\033[1;32m{resp4}{"\n"}")   
-            print(f"{"\n"}{"\033[1;36mNAME , PRICE , DATE\033[m\n\033[1;32m"}")  
-            for item in vendas:
-                if resp4 in item.strip().split(","):
-                    print(item)
-
-        elif resp == "4":
-            break
-        else:
-            print(
-                f"{"\n"}{"\033[1;31m I CAN'T UNDERSTAND WHAT YOU WANT! ".center(49)}")
+            elif resp == "4":
+                break
+            else:
+                print(
+                    f"{"\n"}{"\033[1;31m I CAN'T UNDERSTAND WHAT YOU WANT! ".center(49)}")
+                print(f"\033[1;31mCHOOSE THE OPTION USING THE NUMBERS [1,2,3,4]".center(47))
 
 
-#vendashist()
+vendashist()

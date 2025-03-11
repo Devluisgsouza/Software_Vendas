@@ -32,7 +32,7 @@ def fazer_login():
         if login == login_salvo and password == senha_salva:
             print(f"{"\n"}{"\033[1;32m SUCCESSFULLY LOGIN \033[m".center(51)}")
             return
-    print(f"{"\n"}{"\033[1;31m WRONG INFORMATIONS! \033[m".center(54)}")
+    print(f"{"\n"}{"\033[1;31m WRONG INFORMATIONS! \033[m".center(55)}")
     print(f"\033[1;31mTHIS ACCOUNT DOESN'T EXIST IN THE SYSTEM".center(52))
     while True:
         print(f"{"\n"}{"\033[1;36m WOULD YOU LIKE TO CREATE A NEW ACCOUNT? ".center(53)}{"\n"}")
@@ -45,5 +45,6 @@ def fazer_login():
             break
         else:
             print(f"{"\n"}{"\033[1;31mI CAN'T UNDERSTAND WHAT YOU WANT\033[m".center(53)}")
+            print(f"{"\033[1;31mCHOOSE THE OPTION USING THE NUMBERS [1,2]".center(53)}{"\n"}")
 
 #fazer_login()

@@ -19,3 +19,7 @@ copo
 garfo
 copo
 mouse
+uva
+lata
+a
+a
