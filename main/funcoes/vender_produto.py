@@ -1,17 +1,10 @@
 from datetime import datetime
 import openpyxl as op
+from copy import copy
 
 tempo = datetime.now().date()
 data = tempo.strftime("%d/%m/%Y")
 
-arquivo_bancodd = op.load_workbook("main\\banco_de_dados\\banco.xlsx")
-banco = arquivo_bancodd["banco_de_dados"]
-ultima_linha = banco.max_row
-
-total = 0
-totprod = 0
-totdesc = 0
-sacola = []
 exit = False
 
 def vender_prod():
@@ -20,14 +13,21 @@ def vender_prod():
     print(f"{"\n"}{"\033[1;34m PRODUCTS OVER R$100.00 HAVE A 10% DISCOUNT! ".center(50)}{"\n"}")
     print(f"{"IF YOU WANT TO RETURN TO MENU, TYPE 'EXIT'".center(44)}{"\n"}")
 
+    arquivo_bancodd = op.load_workbook("main\\banco_de_dados\\banco.xlsx")
+    banco = arquivo_bancodd["banco_de_dados"] 
+
+    total = 0
+    totprod = 0
+    totdesc = 0
+    sacola = []
+
     while True:
         if exit:
                 break
         while True:
             name = input(f"\033[1;36m{"\n"}{"Product's name: "}").lower().strip()
             if name == "":
-                print(
-                    f"{"\n"}{"\033[1;31m ERROR! ENTER A VALID NAME \033[m".center(51)}{"\n"}")
+                print(f"{"\n"}{"\033[1;31m ERROR! ENTER A VALID NAME \033[m".center(51)}{"\n"}")
             elif name == "exit".strip().lower():
                 return exit
             else:
@@ -44,6 +44,7 @@ def vender_prod():
         if price < 100:
             total += price
             totprod += 1
+            sacola.append((name, price))
             banco.append([name,price,data])
             arquivo_bancodd.save("main\\banco_de_dados\\banco.xlsx")
         else:
@@ -51,6 +52,7 @@ def vender_prod():
             totdesc += 1
             total += price
             totprod += 1
+            sacola.append((name, price))
             banco.append([name,price,data])
             arquivo_bancodd.save("main\\banco_de_dados\\banco.xlsx")
         while True:
@@ -80,4 +82,4 @@ def vender_prod():
 
 
 
-#vender_prod()
+vender_prod()
