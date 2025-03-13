@@ -4,7 +4,6 @@ from copy import copy
 
 tempo = datetime.now().date()
 data = tempo.strftime("%d/%m/%Y")
-
 exit = False
 
 def vender_prod():
@@ -19,6 +18,9 @@ def vender_prod():
     sacola = []
 
     while True:
+        if exit:
+                break
+        
         arquivo_bancodd = op.load_workbook("main\\banco_de_dados\\banco.xlsx")
         banco = arquivo_bancodd["banco_de_dados"]
         ultima_linha_base = banco.max_row
@@ -27,8 +29,7 @@ def vender_prod():
         nome_origem = banco.cell(row=3, column=1)
         preço_origem = banco.cell(row=3, column=2)
         data_origem = banco.cell(row=3, column=3)
-        if exit:
-                break
+        
         while True:
             name = input(f"\033[1;36m{"\n"}{"Product's name: "}").lower().strip()
             if name == "":
@@ -101,4 +102,4 @@ def vender_prod():
     
 
 
-vender_prod()
+#vender_prod()
