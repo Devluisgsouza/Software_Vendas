@@ -12,16 +12,21 @@ def vender_prod():
     print(f"{"\033[1;36m PUT ALL THE PRODUCTS YOU'VE SOLD ".center(50)}{"\n"}")
     print(f"{"\n"}{"\033[1;34m PRODUCTS OVER R$100.00 HAVE A 10% DISCOUNT! ".center(50)}{"\n"}")
     print(f"{"IF YOU WANT TO RETURN TO MENU, TYPE 'EXIT'".center(44)}{"\n"}")
-
-    arquivo_bancodd = op.load_workbook("main\\banco_de_dados\\banco.xlsx")
-    banco = arquivo_bancodd["banco_de_dados"] 
-
+    
     total = 0
     totprod = 0
     totdesc = 0
     sacola = []
 
     while True:
+        arquivo_bancodd = op.load_workbook("main\\banco_de_dados\\banco.xlsx")
+        banco = arquivo_bancodd["banco_de_dados"]
+        ultima_linha_base = banco.max_row
+        for linha in range(2, ultima_linha_base +1):
+            ultima_linha = linha
+        nome_origem = banco.cell(row=3, column=1)
+        preço_origem = banco.cell(row=3, column=2)
+        data_origem = banco.cell(row=3, column=3)
         if exit:
                 break
         while True:
@@ -46,6 +51,12 @@ def vender_prod():
             totprod += 1
             sacola.append((name, price))
             banco.append([name,price,data])
+            preço_destino = banco.cell(row=ultima_linha+1, column=2)
+            data_destino = banco.cell(row=ultima_linha+1, column=3)
+            nome_destino = banco.cell(row=ultima_linha+1, column=1)
+            preço_destino._style = copy(preço_origem._style)
+            data_destino._style = copy(data_origem._style)
+            nome_destino._style = copy(nome_origem._style)
             arquivo_bancodd.save("main\\banco_de_dados\\banco.xlsx")
         else:
             price = price - (price * 0.1)
@@ -54,6 +65,12 @@ def vender_prod():
             totprod += 1
             sacola.append((name, price))
             banco.append([name,price,data])
+            preço_destino = banco.cell(row=ultima_linha+1, column=2)
+            data_destino = banco.cell(row=ultima_linha+1, column=3)
+            nome_destino = banco.cell(row=ultima_linha+1, column=1)
+            preço_destino._style = copy(preço_origem._style)
+            data_destino._style = copy(data_origem._style)
+            nome_destino._style = copy(nome_origem._style)
             arquivo_bancodd.save("main\\banco_de_dados\\banco.xlsx")
         while True:
             print(f"{"\n"}{"\033[1;36m ADD MORE PRODUCTS? ".center(48)}{"\n"}")
@@ -70,8 +87,10 @@ def vender_prod():
                 for name, price in sacola:
                     print(f"\033[1;33m{name}{"    -    "}\033[1;32mR${price:.2f}")
                 print(f"{"\n"}{"\033[m"}")
+                arquivo_bancodd.save("main\\banco_de_dados\\banco.xlsx")
                 break
             elif decide == "1":
+                arquivo_bancodd.save("main\\banco_de_dados\\banco.xlsx")
                 break
             else:
                 print(
@@ -79,7 +98,7 @@ def vender_prod():
                 print(f"{"\033[1;31mCHOOSE THE OPTION USING THE NUMBERS [1,2]".center(52)}{"\n"}")
         if decide != "1" and "2":
             break
-
+    
 
 
 vender_prod()
