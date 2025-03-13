@@ -32,6 +32,8 @@ def vendashist():
                     print(f"{"\n"}{"\033[1;36mPRODUCT HISTORY WITH NAME: ".center(47)}\033[1;32m{resp2}{"\n"}")
                     for linha in range(2,ultima_linha + 1):
                         produtos = banco.cell(row=linha, column=1).value
+                        preços = banco.cell(row=linha, column=2).value
+                        datas = banco.cell(row=linha, column=3).value
                         if resp2 == produtos:
                             print(f"{"PRODUCT: "}{produtos}{"  /  PRICE: R$"}{preços:.2f}{"  /  SALE DATE: "}{datas}")  
                     break                  
@@ -44,7 +46,9 @@ def vendashist():
                     resp3float = float(resp3)
                     print(f"{"\n"}{"\033[1;36mPRODUCT HISTORY WITH PRICE: ".center(43)}\033[1;32m{"R$"}{resp3float:.2f}{"\n"}")    
                     for linha in range(2,ultima_linha + 1):
+                        produtos = banco.cell(row=linha, column=1).value
                         preços = banco.cell(row=linha, column=2).value
+                        datas = banco.cell(row=linha, column=3).value
                         if resp3float == preços:
                             print(f"{"PRODUCT: "}{produtos}{"  /  PRICE: R$"}{preços:.2f}{"  /  SALE DATE: "}{datas}")  
                     break    
@@ -57,6 +61,8 @@ def vendashist():
                 print(f"{"\n"}{"\033[1;36mPRODUCT HISTORY WITH DATE: ".center(47)}\033[1;32m{resp4}{"\n"}")   
                 print(f"{"\n"}{"\033[1;36mNAME , PRICE , DATE\033[m\n\033[1;32m"}")  
                 for linha in range(2,ultima_linha + 1):
+                    produtos = banco.cell(row=linha, column=1).value
+                    preços = banco.cell(row=linha, column=2).value
                     datas = banco.cell(row=linha, column=3).value
                     if resp4 == datas:
                         print(f"{"PRODUCT: "}{produtos}{"  /  PRICE: R$"}{preços:.2f}{"  /  SALE DATE: "}{datas}")  
@@ -70,4 +76,4 @@ def vendashist():
                 
 
 
-#vendashist()
+# vendashist()
