@@ -31,8 +31,7 @@ def criar_conta():
             senha_destino._style = copy(senha_origem._style)
             arquivo_bancodd.save("main\\banco_de_dados\\banco.xlsx")
             return exit
-
-    
+ 
 
 def fazer_login():
     arquivo_bancodd = op.load_workbook("main\\banco_de_dados\\banco.xlsx")

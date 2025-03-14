@@ -1,15 +1,12 @@
 import openpyxl as op
-
-
-exit = False
-arquivo_bancodd = op.load_workbook("main\\banco_de_dados\\banco.xlsx")
-banco_vendas = arquivo_bancodd["banco_de_dados"]
-ultima_linha = banco_vendas.max_row
+import os
 
 exit = False
 
 def vendashist():
-    
+    arquivo_bancodd = op.load_workbook("main\\banco_de_dados\\banco.xlsx")
+    banco_vendas = arquivo_bancodd["banco_de_vendas"]
+    ultima_linha = banco_vendas.max_row
     for linha in range(2,ultima_linha + 1):
         produtos = banco_vendas.cell(row=linha, column=1).value
         preços = banco_vendas.cell(row=linha, column=2).value
@@ -53,8 +50,7 @@ def vendashist():
                             print(f"{"PRODUCT: "}{produtos}{"  /  PRICE: R$"}{preços:.2f}{"  /  SALE DATE: "}{datas}")  
                     break    
                 except ValueError:
-                    print(f"{"\n"}{"\033[1;31m ERROR! ENTER A VALID PRICE \033[m".center(52)}{"\n"}")
-                
+                    print(f"{"\n"}{"\033[1;31m ERROR! ENTER A VALID PRICE \033[m".center(52)}{"\n"}")   
             elif resp == "3":
                 print(f"{"\n"}{"\033[1;36mENTER THE PRODUCT DATE: ".center(50)}{"\n"}\033[1;32m")
                 resp4 = input("\033[1;36mFOR EXAMPLE: DD/MM/YYYY (DAY/MONTH/YEAR)\n\n".center(53)).replace("-", "/").replace(" ","/").replace(".","/").strip()
@@ -75,5 +71,57 @@ def vendashist():
                 break
                 
 
+def exlcuir_venda():
+    arquivo_bancodd = op.load_workbook("main\\banco_de_dados\\banco.xlsx")
+    banco_vendas = arquivo_bancodd["banco_de_vendas"]
+    ultima_linha = banco_vendas.max_row
+    for linha in range(2, ultima_linha +1):
+        ultima_linha = linha
+    resp = input("Produto: ")
+    resp2 = input("Preço: ")
+    resp3 = input("Data: ")
+    for linha in range(2,ultima_linha + 1):
+        produtos = banco_vendas.cell(row=linha, column=1).value
+        preços = banco_vendas.cell(row=linha, column=2).value
+        datas = banco_vendas.cell(row=linha, column=3).value
+    banco_vendas.delete_rows()
+
+
+def alterar_venda():
+    pass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#exlcuir_venda()
 
 # vendashist()

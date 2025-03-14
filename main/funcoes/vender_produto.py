@@ -48,8 +48,7 @@ def vender_prod():
                 print(f"{"\n"}{"\033[1;31m ERROR! ENTER A VALID PRICE \033[m".center(52)}")
                 print(f"{"\033[1;31m USE ONLY THE “,” OR “.” TO ADD CENTS \033[m".center(52)}")
                 print(f"{"\n"}{"\033[1;31m FOR EXAMPLE:\033[m".center(52)}")
-                print(f"{"\033[1;32mR$0000,00 or R$0000.00\033[m".center(51)}{"\n"}")
-                     
+                print(f"{"\033[1;32mR$0000,00 or R$0000.00\033[m".center(51)}{"\n"}")            
         if price < 100:
             total += price
             totprod += 1
@@ -103,6 +102,4 @@ def vender_prod():
         if decide != "1" and "2":
             break
     
-
-
 # vender_prod()
