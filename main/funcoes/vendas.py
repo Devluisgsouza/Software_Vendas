@@ -3,17 +3,17 @@ import openpyxl as op
 
 exit = False
 arquivo_bancodd = op.load_workbook("main\\banco_de_dados\\banco.xlsx")
-banco = arquivo_bancodd["banco_de_dados"]
-ultima_linha = banco.max_row
+banco_vendas = arquivo_bancodd["banco_de_dados"]
+ultima_linha = banco_vendas.max_row
 
 exit = False
 
 def vendashist():
     
     for linha in range(2,ultima_linha + 1):
-        produtos = banco.cell(row=linha, column=1).value
-        preços = banco.cell(row=linha, column=2).value
-        datas = banco.cell(row=linha, column=3).value
+        produtos = banco_vendas.cell(row=linha, column=1).value
+        preços = banco_vendas.cell(row=linha, column=2).value
+        datas = banco_vendas.cell(row=linha, column=3).value
     
     while True:
         if exit:
@@ -31,9 +31,9 @@ def vendashist():
                 if resp2 != "":
                     print(f"{"\n"}{"\033[1;36mPRODUCT HISTORY WITH NAME: ".center(47)}\033[1;32m{resp2}{"\n"}")
                     for linha in range(2,ultima_linha + 1):
-                        produtos = banco.cell(row=linha, column=1).value
-                        preços = banco.cell(row=linha, column=2).value
-                        datas = banco.cell(row=linha, column=3).value
+                        produtos = banco_vendas.cell(row=linha, column=1).value
+                        preços = banco_vendas.cell(row=linha, column=2).value
+                        datas = banco_vendas.cell(row=linha, column=3).value
                         if resp2 == produtos:
                             print(f"{"PRODUCT: "}{produtos}{"  /  PRICE: R$"}{preços:.2f}{"  /  SALE DATE: "}{datas}")  
                     break                  
@@ -46,9 +46,9 @@ def vendashist():
                     resp3float = float(resp3)
                     print(f"{"\n"}{"\033[1;36mPRODUCT HISTORY WITH PRICE: ".center(43)}\033[1;32m{"R$"}{resp3float:.2f}{"\n"}")    
                     for linha in range(2,ultima_linha + 1):
-                        produtos = banco.cell(row=linha, column=1).value
-                        preços = banco.cell(row=linha, column=2).value
-                        datas = banco.cell(row=linha, column=3).value
+                        produtos = banco_vendas.cell(row=linha, column=1).value
+                        preços = banco_vendas.cell(row=linha, column=2).value
+                        datas = banco_vendas.cell(row=linha, column=3).value
                         if resp3float == preços:
                             print(f"{"PRODUCT: "}{produtos}{"  /  PRICE: R$"}{preços:.2f}{"  /  SALE DATE: "}{datas}")  
                     break    
@@ -61,9 +61,9 @@ def vendashist():
                 print(f"{"\n"}{"\033[1;36mPRODUCT HISTORY WITH DATE: ".center(47)}\033[1;32m{resp4}{"\n"}")   
                 print(f"{"\n"}{"\033[1;36mNAME , PRICE , DATE\033[m\n\033[1;32m"}")  
                 for linha in range(2,ultima_linha + 1):
-                    produtos = banco.cell(row=linha, column=1).value
-                    preços = banco.cell(row=linha, column=2).value
-                    datas = banco.cell(row=linha, column=3).value
+                    produtos = banco_vendas.cell(row=linha, column=1).value
+                    preços = banco_vendas.cell(row=linha, column=2).value
+                    datas = banco_vendas.cell(row=linha, column=3).value
                     if resp4 == datas:
                         print(f"{"PRODUCT: "}{produtos}{"  /  PRICE: R$"}{preços:.2f}{"  /  SALE DATE: "}{datas}")  
                 break  
