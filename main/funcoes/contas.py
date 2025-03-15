@@ -9,8 +9,9 @@ def criar_conta():
     ultima_linha = banco_contas.max_row
     for linha in range(2, ultima_linha +1):
         ultima_linha = linha
-    email_origem = banco_contas.cell(row=2, column=1)
-    senha_origem = banco_contas.cell(row=2, column=2)
+    id_origem = banco_contas.cell(row=2, column=1)
+    email_origem = banco_contas.cell(row=2, column=2)
+    senha_origem = banco_contas.cell(row=2, column=3)
     print(f"{"\n"}{"\033[1;36m CREATE YOUR ACCOUNT ".center(52)}{"\n"}")
     while True:
         if exit:
@@ -18,17 +19,21 @@ def criar_conta():
         login = input("\033[1;32mEmail: ").strip().lower()
         password = input("\033[1;32mPassword: ").strip()
         for linha in range(2,ultima_linha + 1):
-            emails = banco_contas.cell(row=linha, column=1).value
+            emails = banco_contas.cell(row=linha, column=2).value
+            id = banco_contas.cell(row=linha, column=1).value
+            id_conta = int(id)  + 1
             if login == emails:
                 print(f"{"\n"}{"\033[1;31m THIS ACCOUNT ALREADY EXISTS IN THE SYSTEM \033[m".center(52, "=")}{"\n"}")
                 break
         else:
             print(f"{"\n"}{"\033[1;32m ACCOUNT CREATED SUCCESSFULY! \033[m".center(54)}")
-            banco_contas.append([login,password])
-            email_destino = banco_contas.cell(row=ultima_linha+1, column=1)
-            senha_destino = banco_contas.cell(row=ultima_linha+1, column=2)
+            banco_contas.append([id_conta,login,password])
+            email_destino = banco_contas.cell(row=ultima_linha+1, column=2)
+            senha_destino = banco_contas.cell(row=ultima_linha+1, column=3)
+            id_destino = banco_contas.cell(row=ultima_linha+1, column=1)
             email_destino._style = copy(email_origem._style)
             senha_destino._style = copy(senha_origem._style)
+            id_destino._style = copy(id_origem._style)
             arquivo_bancodd.save("main\\banco_de_dados\\banco.xlsx")
             return exit
  
@@ -43,8 +48,8 @@ def fazer_login():
     for linha in range(2,ultima_linha + 1):
         emails = banco_contas.cell(row=linha, column=1).value
         if login == emails:
-            numero_linha_logins = banco_contas.cell(row=linha, column=1).row
-            senhas = banco_contas.cell(row=numero_linha_logins, column=2).value
+            numero_linha_logins = banco_contas.cell(row=linha, column=2).row
+            senhas = banco_contas.cell(row=numero_linha_logins, column=3).value
             if password == senhas:
                 print(f"{"\n"}{"\033[1;32m SUCCESSFULLY LOGIN \033[m".center(51)}")
                 return

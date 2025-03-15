@@ -21,13 +21,18 @@ def vender_prod():
         if exit:
                 break
         arquivo_bancodd = op.load_workbook("main\\banco_de_dados\\banco.xlsx")
-        banco_vendas = arquivo_bancodd["banco_de_dados"]
+        banco_vendas = arquivo_bancodd["banco_de_vendas"]
         ultima_linha_base = banco_vendas.max_row
         for linha in range(2, ultima_linha_base +1):
             ultima_linha = linha
-        nome_origem = banco_vendas.cell(row=3, column=1)
-        preço_origem = banco_vendas.cell(row=3, column=2)
-        data_origem = banco_vendas.cell(row=3, column=3)
+
+        id = banco_vendas.cell(row=linha, column=1).value
+        id_venda = int(id)  + 1
+        id_origem = banco_vendas.cell(row=3, column=1)
+        nome_origem = banco_vendas.cell(row=3, column=2)
+        preço_origem = banco_vendas.cell(row=3, column=3)
+        data_origem = banco_vendas.cell(row=3, column=4)
+        
         
         while True:
             name = input(f"\033[1;36m{"\n"}{"Product's name: "}").lower().strip()
@@ -53,10 +58,12 @@ def vender_prod():
             total += price
             totprod += 1
             sacola.append((name, price))
-            banco_vendas.append([name,price,data])
-            preço_destino = banco_vendas.cell(row=ultima_linha+1, column=2)
-            data_destino = banco_vendas.cell(row=ultima_linha+1, column=3)
-            nome_destino = banco_vendas.cell(row=ultima_linha+1, column=1)
+            banco_vendas.append([id_venda,name,price,data])
+            id_destino = banco_vendas.cell(row=ultima_linha+1, column=1)
+            preço_destino = banco_vendas.cell(row=ultima_linha+1, column=3)
+            data_destino = banco_vendas.cell(row=ultima_linha+1, column=4)
+            nome_destino = banco_vendas.cell(row=ultima_linha+1, column=2)
+            id_destino._style = copy(id_origem._style)
             preço_destino._style = copy(preço_origem._style)
             data_destino._style = copy(data_origem._style)
             nome_destino._style = copy(nome_origem._style)
@@ -67,10 +74,12 @@ def vender_prod():
             total += price
             totprod += 1
             sacola.append((name, price))
-            banco_vendas.append([name,price,data])
-            preço_destino = banco_vendas.cell(row=ultima_linha+1, column=2)
-            data_destino = banco_vendas.cell(row=ultima_linha+1, column=3)
-            nome_destino = banco_vendas.cell(row=ultima_linha+1, column=1)
+            banco_vendas.append([id_venda,name,price,data])
+            id_destino = banco_vendas.cell(row=ultima_linha+1, column=1)
+            preço_destino = banco_vendas.cell(row=ultima_linha+1, column=3)
+            data_destino = banco_vendas.cell(row=ultima_linha+1, column=4)
+            nome_destino = banco_vendas.cell(row=ultima_linha+1, column=2)
+            id_destino._style = copy(id_origem._style)
             preço_destino._style = copy(preço_origem._style)
             data_destino._style = copy(data_origem._style)
             nome_destino._style = copy(nome_origem._style)
