@@ -79,7 +79,7 @@ def exlcuir_venda():
     for linha in range(2,ultima_linha + 1):
         ultima_linha = linha
         id_venda = banco_vendas.cell(row=linha, column=1).value
-
+        # linha_id = ?
         # descobrir como identificar a linha que o id inserido está
 
         if id == id_venda:
