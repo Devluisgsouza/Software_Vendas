@@ -43,10 +43,10 @@ def fazer_login():
     banco_contas = arquivo_bancodd["contas_de_usuario"]
     ultima_linha = banco_contas.max_row
     print(f"{"\n"}{"\033[1;36m ENTER WITH YOUR ACCOUNT: ".center(52)}{"\n"}")
-    login = input("\033[1;32mEmail: ").strip().lower()
+    login = input("\033[1;32mEmail: ").strip()
     password = input("Password: ").strip()
     for linha in range(2,ultima_linha + 1):
-        emails = banco_contas.cell(row=linha, column=1).value
+        emails = banco_contas.cell(row=linha, column=2).value
         if login == emails:
             numero_linha_logins = banco_contas.cell(row=linha, column=2).row
             senhas = banco_contas.cell(row=numero_linha_logins, column=3).value

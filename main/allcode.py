@@ -288,7 +288,7 @@ def vendashist():
 
 from funcoes.contas import criar_conta, fazer_login
 from funcoes.vender_produto import vender_prod
-from main.funcoes.gerenciar_vendas import vendashist
+from main.funcoes.hitorico_vendas import vendashist
 from main.funcoes.menus import menusystem, menusystem2
 
 
