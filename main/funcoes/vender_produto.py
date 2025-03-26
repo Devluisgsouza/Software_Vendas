@@ -27,7 +27,7 @@ def vender_prod():
             ultima_linha = linha
 
         id = banco_vendas.cell(row=linha, column=1).value
-        id_venda = int(id)  + 1
+        id_venda = int(id) + 1
         id_origem = banco_vendas.cell(row=3, column=1)
         nome_origem = banco_vendas.cell(row=3, column=2)
         preço_origem = banco_vendas.cell(row=3, column=3)
