@@ -36,6 +36,7 @@ while True:
         break
     elif resp == "2":
         criar_conta()
+        fazer_login()
         while True:
             menusystem()
             resp3 = input(f"{" WHAT YOU WANT TO DO? ".center(42)}{"\n"}{"\n"}")
