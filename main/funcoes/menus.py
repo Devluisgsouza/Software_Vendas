@@ -6,7 +6,9 @@ def menusystem():
     print(" [3] ACCESS THE SALES HISTORY ".center(50))
     print(" [4] DELETE SALES ".center(38))
     print(" [5] CHANGE SALES ".center(38))
-    print(f"{" [6] CLOSE SYSTEM ".center(37)}{"\n"}")
+    print(" [6] DELETE ACCOUNT ".center(39))
+    print(" [7] CHANGE ACCOUNT ".center(39))
+    print(f"{" [8] CLOSE SYSTEM ".center(37)}{"\n"}")
 
 
 def menusystem2():
@@ -16,7 +18,9 @@ def menusystem2():
     print(" [3] ACCESS THE SALES HISTORY ".center(50))
     print(" [4] DELETE SALES ".center(38))
     print(" [5] CHANGE SALES ".center(38))
-    print(f"{" [6] CLOSE SYSTEM ".center(37)}{"\n"}")
+    print(" [6] DELETE ACCOUNT ".center(39))
+    print(" [7] CHANGE ACCOUNT ".center(39))
+    print(f"{" [8] CLOSE SYSTEM ".center(37)}{"\n"}")
 
 
 # menusystem()

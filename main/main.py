@@ -3,6 +3,7 @@ from funcoes.vender_produto import vender_prod
 from funcoes.hitorico_vendas import vendashist
 from funcoes.menus import menusystem, menusystem2
 from funcoes.gerenciar_vendas import exlcuir_venda, alterar_venda
+from funcoes.gerenciar_contas import excluir_conta, alterar_conta
 
 
 
@@ -28,11 +29,15 @@ while True:
                 case "5":
                     alterar_venda()
                 case "6":
+                    excluir_conta()
+                case "7":
+                    alterar_conta()
+                case "8":
                     print(f"{"\n"}{"\033[1;32m SEE YOU SOON! \033[m".center(52)}{"\n"}")
                     exit()
                 case _:
-                    print(f"{"\n"}{"\033[1;31m I CAN'T UNDERSTAND WHAT YOU WANT! ".center(50)}")
-                    print(f"\033[1;31mCHOOSE THE OPTION USING THE NUMBERS [1,2,3,4,5,6]".center(47))
+                    print(f"{"\n"}{"\033[1;31m I CAN'T UNDERSTAND WHAT YOU WANT! ".center(57)}")
+                    print(f"\033[1;31mCHOOSE THE OPTION USING THE NUMBERS [1,2,3,4,5,6,7,8]".center(47))
         break
     elif resp == "2":
         criar_conta()
@@ -53,11 +58,15 @@ while True:
                 case "5":
                     alterar_venda()
                 case "6":
+                    excluir_conta()
+                case "7":
+                    alterar_conta()
+                case "8":
                     print(f"{"\n"}{"\033[1;32m SEE YOU SOON! \033[m".center(52)}{"\n"}")
                     exit()
                 case _:
                     print("\033[1;31m I CAN'T UNDERSTAND WHAT YOU WANT! ".center(50))
-                    print(f"\033[1;31mCHOOSE THE OPTION USING THE NUMBERS [1,2,3,4,5,6]".center(47))
+                    print(f"\033[1;31mCHOOSE THE OPTION USING THE NUMBERS [1,2,3,4,5,6,7,8]".center(47))
         break
     else:
         print(f"{"\n"}{"\033[1;31m I CAN'T UNDERSTAND WHAT YOU WANT \033[m".center(56)}")
@@ -77,9 +86,13 @@ while True:
                 case "5":
                     alterar_venda()
                 case "6":
+                    excluir_conta()
+                case "7":
+                    alterar_conta()
+                case "8":
                     print(f"{"\n"}{"\033[1;32m SEE YOU SOON! \033[m".center(52)}{"\n"}")
                     exit()
                 case _:
                     print("\033[1;31m I CAN'T UNDERSTAND WHAT YOU WANT! ".center(50))
-                    print(f"\033[1;31mCHOOSE THE OPTION USING THE NUMBERS [1,2,3,4,5,6]".center(47))
+                    print(f"\033[1;31mCHOOSE THE OPTION USING THE NUMBERS [1,2,3,4,5,6,7,8]".center(47))
         
