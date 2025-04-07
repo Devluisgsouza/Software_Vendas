@@ -1,6 +1,5 @@
 import openpyxl as op
 
-
 exit = False
 
 def vendashist():

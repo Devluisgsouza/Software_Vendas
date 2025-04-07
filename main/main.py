@@ -95,4 +95,3 @@ while True:
                 case _:
                     print("\033[1;31m I CAN'T UNDERSTAND WHAT YOU WANT! ".center(50))
                     print(f"\033[1;31mCHOOSE THE OPTION USING THE NUMBERS [1,2,3,4,5,6,7,8]".center(47))
-        
